@@ -6,6 +6,7 @@
 - link:
     ~/.zshrc: zsh/.zshrc
     ~/.vimrc: vim/.vimrc
+    ~/.tmux.conf: tmux/.tmux.conf
     ~/.oh-my-zsh/custom/plugins/zsh-completions: zsh/plugins/zsh-completions
     ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting: zsh/plugins/zsh-syntax-highlighting
 
