@@ -1,5 +1,5 @@
 # dotfiles
 
-Repository just to house my configuration files.
+Repository just to house my configuration files. I am using [dotbot](https://github.com/anishathalye/dotbot) to bootstrap my dotfiles. 
 
-The script `./setupFiles` will simply symlink configuration files (e.g. `.zshrc`) such that they appear to be in my home directory so their configurations will be picked up my shell.
+The `./install` script can be used to setup my configration files. This setup is dependent on (oh-my-zsh)[https://github.com/ohmyzsh/ohmyzsh] being installed in my `$HOME` directory. 
