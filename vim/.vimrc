@@ -14,6 +14,18 @@ set nocompatible
 " Turn on syntax highlighting.
 syntax on
 
+colorscheme gruvbox
+
+nmap <C-c> <esc>
+
+
+" lightline
+set noshowmode
+
+let g:lightline = {
+      \ 'colorscheme': 'ayu_light',
+      \ }
+
 " Disable the default Vim startup message.
 set shortmess+=I
 
