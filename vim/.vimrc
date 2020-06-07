@@ -18,6 +18,9 @@ colorscheme gruvbox
 
 nmap <C-c> <esc>
 
+" NerdTree mapping
+map <C-o> :NERDTreeToggle<CR>
+
 
 " lightline
 set noshowmode
