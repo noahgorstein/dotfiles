@@ -1,6 +1,6 @@
 require('lualine').setup({
 	options = {
-		theme = "catppuccin",
+		theme = "dracula",
 		component_separators = "",
 		section_separators = "",
 	},

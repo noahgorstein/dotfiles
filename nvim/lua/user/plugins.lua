@@ -16,11 +16,7 @@ packer.init({
 packer.startup(function()
   use("wbthomason/packer.nvim") -- packer can manage itself
 
-  -- ui
-  use({
-    "catppuccin/nvim",
-    as = "catppuccin"
-  })
+  use("ellisonleao/gruvbox.nvim")
   use("hoob3rt/lualine.nvim")
  	use("akinsho/toggleterm.nvim")
   use {
@@ -41,6 +37,8 @@ packer.startup(function()
   use("hrsh7th/cmp-nvim-lsp")
   use("saadparwaiz1/cmp_luasnip")
   use("L3MON4D3/LuaSnip")
+  use("jose-elias-alvarez/null-ls.nvim")
+  use("MunifTanjim/prettier.nvim")
 
   	-- telescope
 	use("nvim-lua/plenary.nvim")

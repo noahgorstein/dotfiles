@@ -79,12 +79,13 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	buf_set_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 
+  -- autocmd BufWritePre <buffer> lua OrganizeImports(150)
+
 	if client.resolved_capabilities.document_formatting then
 		vim.cmd([[
 			augroup formatting
 				autocmd! * <buffer>
 				autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
-				autocmd BufWritePre <buffer> lua OrganizeImports(150)
 			augroup END
 		]])
 	end
@@ -100,6 +101,10 @@ local on_attach = function(client, bufnr)
 	end
 end
 
+
+require'lspconfig'.pyright.setup{
+  on_attach=on_attach
+}
 
 require'lspconfig'.sparql.setup{
     cmd = {"node", "/Users/noahgorstein/.nvm/versions/node/v8.17.0/lib/node_modules/sparql-language-server/dist/cli.js", "--stdio"},
@@ -130,4 +135,22 @@ require'lspconfig'.sumneko_lua.setup {
   },
 }
 
-require'lspconfig'.tsserver.setup{}
+local function organize_imports()
+  local params = {
+    command = "_typescript.organizeImports",
+    arguments = {vim.api.nvim_buf_get_name(0)},
+    title = ""
+  }
+  vim.lsp.buf.execute_command(params)
+end
+
+require'lspconfig'.tsserver.setup{
+  on_attach = on_attach,
+  commands = {
+    OrganizeImports = {
+      organize_imports,
+      description = "Organize Imports"
+    }
+  }
+}
+
