@@ -15,7 +15,10 @@ tree.setup({
       warning = "",
       error = "",
     },
-  }
+  },
+  update_focused_file = {
+    enable = true
+  },
 })
 
 

@@ -13,7 +13,7 @@ packer.init({
 	},
 })
 
-packer.startup(function()
+packer.startup(function(use)
   use("wbthomason/packer.nvim") -- packer can manage itself
 
   use("ellisonleao/gruvbox.nvim")
@@ -48,5 +48,12 @@ packer.startup(function()
 		"nvim-telescope/telescope-fzf-native.nvim",
 		run = "make",
 	})
+
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
 
 end)

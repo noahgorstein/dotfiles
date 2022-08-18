@@ -16,11 +16,11 @@ local options = {
 	hlsearch = false,
 	ignorecase = true,
 	incsearch = true,
-	colorcolumn = "80",
 	backspace = { "indent", "eol", "start" },
 	spell = true,
   spelllang = { "en_us" },
   splitright = true,
+  cursorline = true,
 }
 
 vim.opt.shortmess:append("c")
