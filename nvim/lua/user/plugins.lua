@@ -17,6 +17,7 @@ packer.startup(function(use)
   use("wbthomason/packer.nvim") -- packer can manage itself
 
   use("ellisonleao/gruvbox.nvim")
+  use("akinsho/bufferline.nvim")
   use("hoob3rt/lualine.nvim")
   use("akinsho/toggleterm.nvim")
   use {
@@ -39,7 +40,15 @@ packer.startup(function(use)
   use("hrsh7th/cmp-path")
   use("saadparwaiz1/cmp_luasnip")
   use("L3MON4D3/LuaSnip")
-  
+
+
+  -- debugging
+  use("mfussenegger/nvim-dap")
+  use("leoluz/nvim-dap-go")
+  use("rcarriga/nvim-dap-ui")
+  use("theHamsta/nvim-dap-virtual-text")
+  use("nvim-telescope/telescope-dap.nvim")
+
 
 
   -- diagnostics

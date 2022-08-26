@@ -5,10 +5,11 @@ local on_attach = function(_, bufnr)
   end
 
   local opts = { noremap = true, silent = true }
-  buf_set_keymap("n", "gt", "<cmd>lua vim.lsp.buf.type_definition<CR>", opts)
+  buf_set_keymap("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
   buf_set_keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
   buf_set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
   buf_set_keymap("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+  buf_set_keymap("n", "r", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
   buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
   buf_set_keymap("n", "dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
@@ -45,9 +46,25 @@ cmp.setup({
 })
 
 
-require("lspconfig").pyright.setup {
+require("lspconfig").pylsp.setup {
   capabilities=capabilities,
-  on_attach = on_attach
+  on_attach=on_attach,
+  settings = {
+    pylsp = {
+      plugins = {
+        yapf = { enabled = false},
+        autopep8 = { enabled = false},
+        pyflakes = { enabled = false},
+        black = {enabled = true},
+        flake8 = { enabled = true},
+        pycodestyle = { enabled = false},
+        pyflakes = { enabled = false},
+        pylint = { enabled = false},
+        mccabe = { enabled = false},
+      }
+    }
+  }
+
 }
 
 require("lspconfig").sparql.setup {
