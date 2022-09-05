@@ -14,7 +14,7 @@ packer.init({
 })
 
 packer.startup(function(use)
-  use("wbthomason/packer.nvim") -- packer can manage itself
+  use("wbthomason/packer.nvim")
 
   use("ellisonleao/gruvbox.nvim")
   use("akinsho/bufferline.nvim")
@@ -27,6 +27,14 @@ packer.startup(function(use)
     },
     tag = 'nightly' 
   }
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
+  use("tpope/vim-surround")
+  use("jiangmiao/auto-pairs")
 
   -- lsp, completions syntax highlighting
   use({
@@ -49,8 +57,6 @@ packer.startup(function(use)
   use("theHamsta/nvim-dap-virtual-text")
   use("nvim-telescope/telescope-dap.nvim")
 
-
-
   -- diagnostics
   use {
     "folke/trouble.nvim",
@@ -68,12 +74,5 @@ packer.startup(function(use)
     "nvim-telescope/telescope-fzf-native.nvim",
     run = "make",
   })
-
-  use {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('gitsigns').setup()
-    end
-  }
 
 end)
