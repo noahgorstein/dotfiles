@@ -19,12 +19,26 @@ vim.opt.completeopt = {"menu", "menuone", "noselect"}
 
 -- Setup nvim-cmp.
 local cmp = require'cmp'
+local lspkind = require'lspkind'
 
 cmp.setup({
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
     end,
+  },
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol_text', 
+      maxwidth = 50, 
+      menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[LuaSnip]",
+        nvim_lua = "[Lua]",
+        latex_symbols = "[Latex]",
+      })
+    })
   },
   window = {
     -- completion = cmp.config.window.bordered(),
@@ -64,7 +78,11 @@ require("lspconfig").pylsp.setup {
       }
     }
   }
+}
 
+require("lspconfig").tsserver.setup{
+  capabilities=capabilities,
+  on_attach=on_attach
 }
 
 require("lspconfig").sparql.setup {
