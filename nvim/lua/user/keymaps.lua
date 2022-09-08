@@ -15,3 +15,5 @@ keymap("n", "<leader>h", ":bprevious<CR>", opts)
 -- system clipboard integration
 keymap("v", "<leader>y", '"+y', opts)
 keymap("v", "<leader>Y", '"+Y', opts)
+
+keymap("n", "<leader>f", ":Format<cr>", opts)
