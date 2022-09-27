@@ -92,6 +92,11 @@ require("lspconfig").tsserver.setup{
   on_attach=on_attach
 }
 
+require("lspconfig").bashls.setup{
+  capabilities=capabilities,
+  on_attach=on_attach
+}
+
 require("lspconfig").sparql.setup {
   cmd = { "node", "/Users/noahgorstein/.nvm/versions/node/v8.17.0/lib/node_modules/sparql-language-server/dist/cli.js",
     "--stdio" },
@@ -103,6 +108,11 @@ require("lspconfig").sparql.setup {
 require("lspconfig").gopls.setup {
   capabilities=capabilities,
   on_attach = on_attach
+}
+
+require("lspconfig").prosemd_lsp.setup {
+  capabilities=capabilities,
+  on_attach=on_attach
 }
 
 vim.diagnostic.config{                                                                                                   
