@@ -36,8 +36,8 @@ cmp.setup({
   },
   formatting = {
     format = lspkind.cmp_format({
-      mode = 'symbol_text', 
-      maxwidth = 50, 
+      mode = 'symbol_text',
+      maxwidth = 50,
       menu = ({
         buffer = "[Buffer]",
         nvim_lsp = "[LSP]",
@@ -75,7 +75,6 @@ require("lspconfig").pylsp.setup {
       plugins = {
         yapf = { enabled = false},
         autopep8 = { enabled = false},
-        pyflakes = { enabled = false},
         black = {enabled = true},
         flake8 = { enabled = true},
         pycodestyle = { enabled = false},
@@ -97,6 +96,29 @@ require("lspconfig").bashls.setup{
   on_attach=on_attach
 }
 
+require'lspconfig'.sumneko_lua.setup {
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+}
+
 require("lspconfig").sparql.setup {
   cmd = { "node", "/Users/noahgorstein/.nvm/versions/node/v8.17.0/lib/node_modules/sparql-language-server/dist/cli.js",
     "--stdio" },
@@ -115,10 +137,10 @@ require("lspconfig").prosemd_lsp.setup {
   on_attach=on_attach
 }
 
-vim.diagnostic.config{                                                                                                   
-  virtual_text = true,                                                                                                   
-  signs = true,                                                                                                          
-  underline = true,                                                                                                      
-  update_in_insert = true,                                                                                               
-  severity_sort = false,                                                                                                 
-}  
+vim.diagnostic.config{
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = true,
+  severity_sort = false,
+}

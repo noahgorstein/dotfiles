@@ -17,6 +17,7 @@ packer.startup(function(use)
   use("wbthomason/packer.nvim")
 
   use("ellisonleao/gruvbox.nvim")
+  use("folke/tokyonight.nvim")
   use("akinsho/bufferline.nvim")
   use("hoob3rt/lualine.nvim")
   use("akinsho/toggleterm.nvim")
