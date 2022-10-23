@@ -24,19 +24,16 @@ packer.startup(function(use)
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
-      'kyazdani42/nvim-web-devicons', 
+      'kyazdani42/nvim-web-devicons',
     },
-    tag = 'nightly' 
+    tag = 'nightly'
   }
   use("lewis6991/gitsigns.nvim")
   use("tpope/vim-surround")
   use("jiangmiao/auto-pairs")
 
   -- lsp, completions syntax highlighting
-  use({
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-  })
+  use("nvim-treesitter/nvim-treesitter")
   use("noahgorstein/nvim-lspconfig")
   use("hrsh7th/nvim-cmp")
   use("hrsh7th/cmp-nvim-lsp")

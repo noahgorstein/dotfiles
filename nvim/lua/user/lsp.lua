@@ -3,7 +3,7 @@ local on_attach = function(client, bufnr)
 
   -- we want to use null-ls instead 
   if client.name == "tsserver" or client.name == "pylsp" then
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
   end
 
   local function buf_set_keymap(...)
@@ -19,7 +19,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
   buf_set_keymap("n", "dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
 end
 
 vim.opt.completeopt = {"menu", "menuone", "noselect"}
@@ -120,8 +120,7 @@ require'lspconfig'.sumneko_lua.setup {
 }
 
 require("lspconfig").sparql.setup {
-  cmd = { "node", "/Users/noahgorstein/.nvm/versions/node/v8.17.0/lib/node_modules/sparql-language-server/dist/cli.js",
-    "--stdio" },
+  cmd = { "node", os.getenv("NVM_BIN") .. "/sparql-language-server", "--stdio" },
   filetypes = { "sparql", "rq" },
   capabilities=capabilities,
   on_attach = on_attach
@@ -133,6 +132,16 @@ require("lspconfig").gopls.setup {
 }
 
 require("lspconfig").prosemd_lsp.setup {
+  capabilities=capabilities,
+  on_attach=on_attach
+}
+
+require("lspconfig").cssls.setup {
+  capabilities=capabilities,
+  on_attach=on_attach
+}
+
+require("lspconfig").cssmodules_ls.setup {
   capabilities=capabilities,
   on_attach=on_attach
 }
