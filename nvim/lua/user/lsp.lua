@@ -15,7 +15,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
   buf_set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
   buf_set_keymap("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-  buf_set_keymap("n", "r", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+  buf_set_keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
   buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
   buf_set_keymap("n", "dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
@@ -142,6 +142,11 @@ require("lspconfig").cssls.setup {
 }
 
 require("lspconfig").cssmodules_ls.setup {
+  capabilities=capabilities,
+  on_attach=on_attach
+}
+
+require("lspconfig").jdtls.setup {
   capabilities=capabilities,
   on_attach=on_attach
 }
