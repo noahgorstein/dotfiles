@@ -28,9 +28,14 @@ packer.startup(function(use)
     },
     tag = 'nightly'
   }
-  use("lewis6991/gitsigns.nvim")
   use("tpope/vim-surround")
   use("jiangmiao/auto-pairs")
+  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+
+  -- git
+  use("lewis6991/gitsigns.nvim")
+  use("tpope/vim-fugitive")
+  use("tpope/vim-rhubarb")
 
   -- lsp, completions syntax highlighting
   use("nvim-treesitter/nvim-treesitter")
