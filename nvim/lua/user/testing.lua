@@ -5,6 +5,9 @@ vim.g["test#python#pytest#executable"] = "docker-compose run --rm python-test py
 vim.g["test#python#pytest#file_pattern"] = "tests.py"
 
 vim.g["test#go#gotest#executable"] = "go test -v"
+-- vim.g["test#enabled_runners"] = {"python#pytest"}
+
+vim.g["test#javascript#jest#executable"] = 'yarn test:unit --no-coverage'
 
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
