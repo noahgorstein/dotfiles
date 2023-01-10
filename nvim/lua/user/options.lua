@@ -18,9 +18,9 @@ local options = {
 	incsearch = true,
 	backspace = { "indent", "eol", "start" },
 	spell = false,
-  spelllang = { "en_us" },
-  splitright = true,
-  cursorline = true,
+	spelllang = { "en_us" },
+	splitright = true,
+	cursorline = true,
 }
 
 vim.opt.shortmess:append("c")
@@ -28,4 +28,3 @@ vim.opt.shortmess:append("c")
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
-

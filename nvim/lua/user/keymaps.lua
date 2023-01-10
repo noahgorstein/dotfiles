@@ -8,7 +8,6 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-
 keymap("n", "<leader>l", ":bnext<CR>", opts)
 keymap("n", "<leader>h", ":bprevious<CR>", opts)
 
@@ -17,4 +16,3 @@ keymap("v", "<leader>y", '"+y', opts)
 keymap("v", "<leader>Y", '"+Y', opts)
 
 keymap("n", "<leader>f", ":Format<cr>", opts)
-

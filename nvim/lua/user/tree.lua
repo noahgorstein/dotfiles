@@ -7,20 +7,18 @@ tree.setup({
 	view = {
 		side = "left",
 	},
-  diagnostics = {
-    enable = true,
-    icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
-    },
-  },
-  update_focused_file = {
-    enable = true
-  },
+	diagnostics = {
+		enable = true,
+		icons = {
+			hint = "",
+			info = "",
+			warning = "",
+			error = "",
+		},
+	},
+	update_focused_file = {
+		enable = true,
+	},
 })
-
-
 
 require("user.remap").nnoremap("<leader>tv", "<cmd>NvimTreeToggle<CR>")
