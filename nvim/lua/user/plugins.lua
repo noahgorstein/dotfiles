@@ -45,6 +45,9 @@ packer.startup(function(use)
 	use("tpope/vim-rhubarb")
 
 	-- lsp, completions syntax highlighting
+
+  use("williamboman/mason.nvim")
+  use("williamboman/mason-lspconfig.nvim")
 	use("nvim-treesitter/nvim-treesitter")
 	use({
 		"noahgorstein/nvim-lspconfig",

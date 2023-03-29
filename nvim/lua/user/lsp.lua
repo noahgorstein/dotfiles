@@ -133,6 +133,11 @@ require("lspconfig").gopls.setup({
 	on_attach = on_attach,
 })
 
+require("lspconfig").golangci_lint_ls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 require("lspconfig").prosemd_lsp.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
