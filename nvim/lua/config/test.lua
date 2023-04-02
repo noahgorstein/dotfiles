@@ -9,11 +9,3 @@ vim.g["test#go#gotest#executable"] = "go test -v"
 
 vim.g["test#javascript#jest#executable"] = 'yarn test:unit --no-coverage'
 
-local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-
-keymap("n", "<leader>t", ":TestNearest<CR>", opts)
-keymap("n", "<leader>T", ":TestFile<CR>", opts)
-keymap("n", "<leader>a", ":TestSuite<CR>", opts)
-keymap("n", "<leader>L", ":TestLast<CR>", opts)
-keymap("n", "<leader>v", ":TestVisit<CR>", opts)
