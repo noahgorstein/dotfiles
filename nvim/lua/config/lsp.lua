@@ -1,11 +1,10 @@
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(client, bufnr)
-
-    -- we want to use null-ls instead
-	if client.name == "tsserver" or client.name == "pylsp" or client.name == "sumneko_lua" then
-		client.server_capabilities.document_formatting = false
-	end
+  -- we want to use null-ls instead
+  if client.name == "tsserver" or client.name == "pylsp" then
+    client.server_capabilities.document_formatting = false
+  end
 
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
@@ -157,9 +156,9 @@ cmp.setup {
 }
 
 vim.diagnostic.config({
-	virtual_text = true,
-	signs = true,
-	underline = true,
-	update_in_insert = true,
-	severity_sort = false,
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = true,
+  severity_sort = false,
 })
