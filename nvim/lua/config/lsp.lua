@@ -2,7 +2,7 @@
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(client, bufnr)
   -- we want to use null-ls instead
-  if client.name == "tsserver" or client.name == "pylsp" then
+  if client.name == "tsserver" or client.name == "pyright" then
     client.server_capabilities.document_formatting = false
   end
 
@@ -61,19 +61,24 @@ local servers = {
   gopls = {},
   graphql = {},
   tsserver = {},
-  pylsp = {
-    pylsp = {
-      plugins = {
-        yapf = { enabled = false },
-        autopep8 = { enabled = false },
-        black = { enabled = true },
-        flake8 = { enabled = true },
-        pycodestyle = { enabled = false },
-        pyflakes = { enabled = false },
-        pylint = { enabled = false },
-        mccabe = { enabled = false },
-      },
-    },
+  -- pylsp = {
+  --   pylsp = {
+  --     plugins = {
+  --       yapf = { enabled = false },
+  --       autopep8 = { enabled = false },
+  --       black = { enabled = true },
+  --       flake8 = { enabled = true },
+  --       pycodestyle = { enabled = false },
+  --       pyflakes = { enabled = false },
+  --       pylint = { enabled = false },
+  --       mccabe = { enabled = false },
+  --     },
+  --   },
+  -- },
+  pyright = {
+    python = {
+      venvPath = './.venv'
+    }
   },
   lua_ls = {
     Lua = {
@@ -81,6 +86,7 @@ local servers = {
       telemetry = { enable = false },
     },
   },
+  jdtls = {},
 }
 
 -- Setup neovim lua configuration

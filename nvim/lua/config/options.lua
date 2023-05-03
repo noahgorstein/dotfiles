@@ -30,19 +30,19 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
-local augroup = vim.api.nvim_create_augroup   -- Create/get autocommand group
+local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
 local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
 
 augroup('setIndent', { clear = true })
 autocmd('Filetype', {
 	group = 'setIndent',
 	pattern = { 'xml', 'html', 'xhtml', 'css', 'scss', 'javascript', 'typescript',
-		'yaml', 'lua'
+		'yaml', 'lua', 'typescriptreact',
 	},
 	command = 'setlocal shiftwidth=2 tabstop=2'
 })
 autocmd('Filetype', {
 	group = 'setIndent',
-	pattern = {'python', 'go'},
+	pattern = { 'python', 'go' },
 	command = 'setlocal shiftwidth=4 tabstop=4'
 })
