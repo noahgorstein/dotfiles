@@ -76,8 +76,14 @@ local servers = {
   --   },
   -- },
   pyright = {
+    autoImportCompletetion = true,
     python = {
-      venvPath = './.venv'
+      analysis = {
+        autoSearchPaths = true,
+        diagnosticMode = 'openFilesOnly',
+        useLibraryCodeForTypes = true,
+        typeCheckingMode = 'off'
+      }
     }
   },
   lua_ls = {
