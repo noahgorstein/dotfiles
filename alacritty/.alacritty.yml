@@ -30,7 +30,7 @@ font:
     style: Bold Italic
   size: 18
   offset:
-    y: 16
+    y: 10
   glyph_offset:
     y: 9
 
