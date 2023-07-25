@@ -34,9 +34,9 @@ return {
                 { type = "padding", val = 1 },
                 dashboard.button("f", "Find file", ":Telescope find_files<CR>"),
                 dashboard.button("n", "New file", ":ene<CR>"),
-                dashboard.button("g", "Search", ":Telescop live_grep"),
+                dashboard.button("g", "Search", ":Telescope live_grep<CR>"),
                 dashboard.button("r", "Recent Files", ":Telescope oldfiles<CR>"),
-                dashboard.button("h", "Help", ":Telescope help_tags"),
+                dashboard.button("h", "Help", ":Telescope help_tags<CR>"),
                 dashboard.button("q", "Quit", ":qa<CR>"),
             },
             opts = {

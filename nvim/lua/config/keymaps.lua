@@ -52,4 +52,4 @@ vim.keymap.set("n", "<leader>jf", "<cmd>%!jq<cr>", { noremap = true, silent = tr
 vim.keymap.set("n", "<leader>jm", "<cmd>%!jq -c<cr>", { noremap = true, silent = true, desc = "Minify with jq" })
 
 -- Open the current file in the default program (on Mac this should just be just `open`)
-vim.keymap.set('n', '<leader>x', ':!xdg-open %<cr><cr>')
+-- vim.keymap.set('n', '<leader>x', ':!xdg-open %<cr><cr>')
