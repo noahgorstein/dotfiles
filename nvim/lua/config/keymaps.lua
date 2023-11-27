@@ -13,7 +13,7 @@ keymap("v", "<leader>Y", '"+Y', opts)
 keymap("n", "<leader>f", ":Format<cr>", opts)
 
 -- NeoTree keymaps
-keymap('n', '<leader>ft', ":NeoTreeShow<cr>", { desc = "toggle file tree" })
+keymap('n', '<leader>ft', ":Neotree filesystem reveal left toggle<CR>", { desc = "toggle file tree" })
 
 
 -- Telescope keymaps
