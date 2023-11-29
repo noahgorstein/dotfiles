@@ -1,11 +1,6 @@
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(client, bufnr)
-	-- we want to use null-ls instead
-	if client.name == "tsserver" or client.name == "pyright" then
-		client.server_capabilities.document_formatting = false
-	end
-
 	-- NOTE: Remember that lua is a real programming language, and as such it is possible
 	-- to define small helper and utility functions so you don't have to repeat yourself
 	-- many times.
@@ -41,16 +36,9 @@ local on_attach = function(client, bufnr)
 	nmap("<leader>wl", function()
 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	end, "[W]orkspace [L]ist Folders")
-
-  -- Create a command `:Format` local to the LSP buffer
-  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-    vim.lsp.buf.format({ timeout_ms = 3000 })
-  end, { desc = 'Format current buffer with LSP' })
 end
 
 -- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
@@ -61,20 +49,7 @@ local servers = {
 	gopls = {},
 	graphql = {},
 	tsserver = {},
-	-- pylsp = {
-	--   pylsp = {
-	--     plugins = {
-	--       yapf = { enabled = false },
-	--       autopep8 = { enabled = false },
-	--       black = { enabled = true },
-	--       flake8 = { enabled = true },
-	--       pycodestyle = { enabled = false },
-	--       pyflakes = { enabled = false },
-	--       pylint = { enabled = false },
-	--       mccabe = { enabled = false },
-	--     },
-	--   },
-	-- },
+	eslint = {},
 	pyright = {
 		autoImportCompletetion = true,
 		python = {
@@ -90,6 +65,9 @@ local servers = {
 		Lua = {
 			workspace = { checkThirdParty = false },
 			telemetry = { enable = false },
+			diagnostics = {
+				disable = { "missing-fields" },
+			}
 		},
 	},
 	jdtls = {},
@@ -167,8 +145,22 @@ cmp.setup({
 	},
 })
 
+local function fmt(diagnostic)
+	if diagnostic.code then
+		return ("[%s] %s"):format(diagnostic.code, diagnostic.message)
+	end
+	return diagnostic.message
+end
+
 vim.diagnostic.config({
-	virtual_text = true,
+	virtual_text = {
+		source = "always",
+		format = fmt,
+	},
+	float = {
+		source = "always",
+		format = fmt,
+	},
 	signs = true,
 	underline = true,
 	update_in_insert = true,

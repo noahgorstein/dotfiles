@@ -10,8 +10,6 @@ keymap("n", "<leader>h", ":bprevious<CR>", opts)
 keymap("v", "<leader>y", '"+y', opts)
 keymap("v", "<leader>Y", '"+Y', opts)
 
-keymap("n", "<leader>f", ":Format<cr>", opts)
-
 -- NeoTree keymaps
 keymap('n', '<leader>ft', ":Neotree filesystem reveal left toggle<CR>", { desc = "toggle file tree" })
 
