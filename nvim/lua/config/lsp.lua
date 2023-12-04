@@ -36,6 +36,7 @@ local on_attach = function(client, bufnr)
 	nmap("<leader>wl", function()
 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	end, "[W]orkspace [L]ist Folders")
+end
 
 -- Enable the following language servers
 --  Add any additional override configuration in the following tables. They will be passed to
@@ -66,7 +67,7 @@ local servers = {
 			telemetry = { enable = false },
 			diagnostics = {
 				disable = { "missing-fields" },
-			}
+			},
 		},
 	},
 	jdtls = {},
@@ -156,7 +157,6 @@ local function fmt(diagnostic)
 	end
 	return diagnostic.message
 end
-
 
 vim.diagnostic.config({
 	virtual_text = {
