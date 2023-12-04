@@ -36,3 +36,10 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 		})
 	end,
 })
+
+vim.cmd([[
+  augroup RunCommandOnAstroSave
+    autocmd!
+    autocmd BufWritePost *.astro call system('npx prettier -w ' . expand('%')) | e
+  augroup END
+]])

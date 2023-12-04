@@ -36,7 +36,6 @@ local on_attach = function(client, bufnr)
 	nmap("<leader>wl", function()
 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	end, "[W]orkspace [L]ist Folders")
-end
 
 -- Enable the following language servers
 --  Add any additional override configuration in the following tables. They will be passed to
@@ -145,12 +144,19 @@ cmp.setup({
 	},
 })
 
+require("lspconfig").sparql.setup({
+	cmd = { "node", os.getenv("NVM_BIN") .. "/sparql-language-server", "--stdio" },
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 local function fmt(diagnostic)
 	if diagnostic.code then
 		return ("[%s] %s"):format(diagnostic.code, diagnostic.message)
 	end
 	return diagnostic.message
 end
+
 
 vim.diagnostic.config({
 	virtual_text = {
