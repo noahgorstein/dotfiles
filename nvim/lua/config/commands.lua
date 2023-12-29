@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 		local process_sub = string.format('<(echo "%s")', sparql)
 		vim.fn.jobstart(string.format("sparql-formatter %s", process_sub), {
 			stdout_buffered = true,
-      stderr_buffered = true,
+			stderr_buffered = true,
 			on_stdout = function(_, data)
 				if data and not isTableAllEmpty(data) and sparql ~= table.concat(data, "\n") then
 					vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, data)
@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 			on_stderr = function(_, data)
 				if data and not isTableAllEmpty(data) then
 					print(table.concat(data, "\n"))
-          print("Unable to format SPARQL")
+					print("Unable to format SPARQL")
 				end
 			end,
 		})
