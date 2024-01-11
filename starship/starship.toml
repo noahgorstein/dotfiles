@@ -17,7 +17,6 @@ $character"""
 
 [kubernetes]
 format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
-disabled = true
 
 [nodejs]
 format = "[$symbol($version )]($style)"
