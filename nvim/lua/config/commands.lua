@@ -24,6 +24,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 				if data and not isTableAllEmpty(data) and sparql ~= table.concat(data, "\n") then
 					vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, data)
 					local current_file_path = vim.api.nvim_buf_get_name(0)
+					vim.cmd('w')
 					print(string.format("Formatted %s", current_file_path))
 				end
 			end,
