@@ -20,10 +20,17 @@ export EDITOR="nvim"
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 export KEYTIMEOUT=1
 
+# python
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 # js
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # java
 export JAVA_HOME="/opt/homebrew/Cellar/openjdk@11/11.0.12/libexec/openjdk.jdk/Contents/Home"
@@ -44,10 +51,21 @@ export PATH=$HOME/.local/bin:$PATH
 alias reload="source ~/.zshrc"
 alias vim="nvim"
 alias projects="cd ~/projects"
+alias stredit=": | vipe | cat -"
 
 # tmux
 alias tma='tmux attach -t'
 alias tmn='tmux new -s'
+
+# stardog
+alias start='stardog-admin server start'
+alias stop='stardog-admin server stop'
+
+# docker
+alias docker-nuke='docker stop $(docker ps -qa); docker rm $(docker ps -qa); docker rmi -f $(docker images -qa); docker volume prune -f'
+
+# terraform
+alias tf='terraform'
 
 #############
 # HISTORY
@@ -113,4 +131,35 @@ export STARDOG_EXT="$HOME/stardog-ext"
 export STARSHIP_CONFIG=$HOME/.starship.toml
 eval "$(starship init zsh)"
 
+#################
+# FUNCTIONS
+#################
 
+# fbd - delete git branch interactively 
+function fbd {
+  local branches branch
+  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
+  branch=$(echo "$branches" | fzf --multi ) &&
+  git branch -D $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+# turn mov into gif
+function makegif {
+  ffmpeg -y -i $1 -vf fps=30,scale=1040:-1:flags=lanczos,palettegen palette.png
+  ffmpeg -y -i $1 -i palette.png -filter_complex "fps=30,scale=1040:-1:flags=lanczos[x];[x][1:v]paletteuse" $1.gif
+}
+
+
+HASH="%C(always,yellow)%h%C(always,reset)"
+RELATIVE_TIME="%C(always,green)%ar%C(always,reset)"
+AUTHOR="%C(always,bold blue)%an%C(always,reset)"
+REFS="%C(always,red)%d%C(always,reset)"
+SUBJECT="%s"
+
+FORMAT="$HASH $RELATIVE_TIME{$AUTHOR{$REFS $SUBJECT"
+
+pretty_git_log() {
+  git log --graph --pretty="tformat:$FORMAT" $* |
+  column -t -s '{' |
+  less -XRS --quit-if-one-screen
+}
