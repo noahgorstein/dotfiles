@@ -15,8 +15,35 @@ $cmd_duration $jobs $time\
 $line_break\
 $character"""
 
+# [kubernetes]
+# format = '[$context ]($style)'
+# contexts = [
+#  { context_pattern = "int*", style = "red"},
+# ]
+# disabled = false
+
 [kubernetes]
-format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
+disabled = false
+
+[[kubernetes.contexts]]
+context_pattern = "intprod"
+style = "bold green"
+context_alias = " intprod"
+symbol = "🛟"
+
+[[kubernetes.contexts]]
+context_pattern = "produswest2"
+style = "bold red"
+context_alias = " produswest2"
+symbol = "⚠️"
+
+[[kubernetes.contexts]]
+context_pattern = "prodeucentral1"
+style = "bold red"
+context_alias = " prodeucentral1"
+symbol = "⚠️"
+
+
 
 [nodejs]
 format = "[$symbol($version )]($style)"
