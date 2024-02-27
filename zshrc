@@ -36,11 +36,13 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export JAVA_HOME="/opt/homebrew/Cellar/openjdk@11/11.0.12/libexec/openjdk.jdk/Contents/Home"
 
 # go 
-export GOPATH=$HOME/go
-export PATH=$HOME/bin:/usr/local/bin:$GOPATH/bin:$PATH
+export PATH=$PATH:/usr/local/go/bin
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# rust
+source "$HOME/.cargo/env"
 
 export PATH=$HOME/.local/bin:$PATH 
 
@@ -164,3 +166,8 @@ pretty_git_log() {
   less -XRS --quit-if-one-screen
 }
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+if [[ "$(uname)" == "Linux" ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
+fi

@@ -4,7 +4,7 @@ DOTFILE_PATH := $(shell pwd)
 STARSHIP := $(HOME)/.starship.toml
 ZSH := $(HOME)/.zshrc
 TMUX := $(HOME)/.tmux.conf
-ALACRITTY := $(HOME)/.alacritty.yml
+ALACRITTY := $(HOME)/.alacritty.toml
 NEOVIM := $(HOME)/.config/nvim
 
 default: help
@@ -21,8 +21,8 @@ $(ZSH): zshrc
 $(TMUX): tmux.conf
 	ln -sf $(DOTFILE_PATH)/tmux.conf $@
 
-$(ALACRITTY): alacritty.yml
-	ln -sf $(DOTFILE_PATH)/alacritty.yml $@
+$(ALACRITTY): alacritty.toml
+	ln -sf $(DOTFILE_PATH)/alacritty.toml $@
 
 $(NEOVIM): nvim
 	ln -sf $(DOTFILE_PATH)/nvim $@
