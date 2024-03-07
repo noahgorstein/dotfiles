@@ -6,6 +6,6 @@ vim.g["test#python#pytest#file_pattern"] = "^.*\\.py$"
 
 -- For Stardog
 if string.find(vim.fn.getcwd(), "projects/cloud-login", nil, true) then
-	vim.g["test#python#pytest#executable"] = "docker-compose run --rm python-test pytest -rP"
+	vim.g["test#python#pytest#executable"] = "docker compose run --rm python-test pytest -rP"
 	vim.g["test#javascript#jest#executable"] = "yarn test:unit --no-coverage"
 end
