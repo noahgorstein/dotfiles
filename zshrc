@@ -170,4 +170,10 @@ pretty_git_log() {
 if [[ "$(uname)" == "Linux" ]]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   source /usr/share/doc/fzf/examples/key-bindings.zsh
+
+  if [ -z "$SSH_AUTH_SOCK" ] ; then
+    eval `ssh-agent -s`
+    ssh-add $HOME/.ssh/id_ed25519
+  fi
+
 fi
