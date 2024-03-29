@@ -1,115 +1,107 @@
-env:
-  TERM: xterm-256color
+live_config_reload = true
 
-live_config_reload: true
-scrolling:
-    history: 10000
-    multiplier: 10
-selection:
-    semantic_escape_chars: '|:"'' {}()[]<>'
-    save_to_clipboard: true
-window:
-  opacity: 1.0
-  padding:
-    x: 10
-    y: 5
-  # decorations: "Buttonless"
+[colors]
+draw_bold_text_with_bright_colors = true
 
-font:
-  normal:
-    family: "JetBrainsMono Nerd Font Mono"
-    style: Regular
-  bold:
-    family: "JetBrainsMono Nerd Font Mono"
-    style: Bold
-  italic:
-    family: "JetBrainsMono Nerd Font Mono"
-    style: Italic
-  bold_italic:
-    family: "JetBrainsMono Nerd Font Mono"
-    style: Bold Italic
-  size: 14
-  offset:
-    y: 10
-  glyph_offset:
-    y: 9
+[[colors.indexed_colors]]
+color = "0xffa066"
+index = 16
 
-draw_bold_text_with_bright_colors: true
+[[colors.indexed_colors]]
+color = "0xff5d62"
+index = 17
 
-# TokyoNight Alacritty Colors
-# colors:
-#   # Default colors
-#   primary:
-#     background: '0x1a1b26'
-#     foreground: '0xc0caf5'
-#
-#   # Normal colors
-#   normal:
-#     black:   '0x15161E'
-#     red:     '0xf7768e'
-#     green:   '0x9ece6a'
-#     yellow:  '0xe0af68'
-#     blue:    '0x7aa2f7'
-#     magenta: '0xbb9af7'
-#     cyan:    '0x7dcfff'
-#     white:   '0xa9b1d6'
-#
-#   # Bright colors
-#   bright:
-#     black:   '0x414868'
-#     red:     '0xf7768e'
-#     green:   '0x9ece6a'
-#     yellow:  '0xe0af68'
-#     blue:    '0x7aa2f7'
-#     magenta: '0xbb9af7'
-#     cyan:    '0x7dcfff'
-#     white:   '0xc0caf5'
-#
-#   indexed_colors:
-#     - { index: 16, color: '0xff9e64' }
-#     - { index: 17, color: '0xdb4b4b' }
-#
-# Kanagawa Alacritty Colors
-colors:
-  primary:
-    background: '0x1f1f28'
-    foreground: '0xdcd7ba'
+[colors.bright]
+black = "0x727169"
+blue = "0x7fb4ca"
+cyan = "0x7aa89f"
+green = "0x98bb6c"
+magenta = "0x938aa9"
+red = "0xe82424"
+white = "0xdcd7ba"
+yellow = "0xe6c384"
 
-  normal:
-    black:   '0x090618'
-    red:     '0xc34043'
-    green:   '0x76946a'
-    yellow:  '0xc0a36e'
-    blue:    '0x7e9cd8'
-    magenta: '0x957fb8'
-    cyan:    '0x6a9589'
-    white:   '0xc8c093'
+[colors.normal]
+black = "0x090618"
+blue = "0x7e9cd8"
+cyan = "0x6a9589"
+green = "0x76946a"
+magenta = "0x957fb8"
+red = "0xc34043"
+white = "0xc8c093"
+yellow = "0xc0a36e"
 
-  bright:
-    black:   '0x727169'
-    red:     '0xe82424'
-    green:   '0x98bb6c'
-    yellow:  '0xe6c384'
-    blue:    '0x7fb4ca'
-    magenta: '0x938aa9'
-    cyan:    '0x7aa89f'
-    white:   '0xdcd7ba'
+[colors.primary]
+background = "0x1f1f28"
+foreground = "0xdcd7ba"
 
-  selection:
-    background: '0x2d4f67'
-    foreground: '0xc8c093'
+[colors.selection]
+background = "0x2d4f67"
+foreground = "0xc8c093"
 
-  indexed_colors:
-    - { index: 16, color: '0xffa066' }
-    - { index: 17, color: '0xff5d62' }
+[cursor]
+style = "Block"
+unfocused_hollow = true
 
-cursor:
-  style: Block
-  unfocused_hollow: true
+[env]
+TERM = "xterm-256color"
 
-key_bindings:
-  - { key: N,      mods: Command,         action: SpawnNewInstance }
-  - { key: Q,      mods: Command,         action: Quit             }
-  - { key: W,      mods: Command,         action: Quit             }
-  - { key: F,      mods: Command|Control, action: ToggleFullscreen }
-  # - { key: Z,      mods: Control, chars: "\x1bz" }
+[font]
+size = 14
+
+[font.bold]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Bold Italic"
+
+[font.glyph_offset]
+y = 9
+
+[font.italic]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Italic"
+
+[font.normal]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Regular"
+
+[font.offset]
+y = 10
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "Q"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "W"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "F"
+mods = "Command|Control"
+
+[scrolling]
+history = 10000
+multiplier = 10
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = "|:\"' {}()[]<>"
+
+[window]
+opacity = 1.0
+
+[window.padding]
+x = 10
+y = 5
