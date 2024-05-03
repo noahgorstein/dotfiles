@@ -1,9 +1,10 @@
 return {
 	"nvim-lualine/lualine.nvim",
+	priority = 1000,
 	config = function()
 		require("lualine").setup({
 			options = {
-				theme = "kanagawa",
+				theme = "auto",
 				component_separators = "|",
 				section_separators = "",
 			},
