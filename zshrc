@@ -177,3 +177,20 @@ if [[ "$(uname)" == "Linux" ]]; then
   fi
 
 fi
+
+#######################
+# ALACRITTY
+#######################
+if [ "$ALACRITTY" = "true" ]
+then
+  theme() {
+    ln -sf $HOME/.config/alacritty/themes/themes/$1.toml $HOME/.config/alacritty/active.toml
+  }
+  local ALACRITTY_THEME=$(defaults read -g AppleInterfaceStyle 2>/dev/null || echo "Light")
+  if [ "$ALACRITTY_THEME" = "Dark" ]
+  then
+    theme "kanagawa_wave"
+  else
+    theme "catppuccin_latte"
+  fi
+fi
