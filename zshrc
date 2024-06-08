@@ -35,9 +35,6 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # java
 export JAVA_HOME="/opt/homebrew/Cellar/openjdk@11/11.0.12/libexec/openjdk.jdk/Contents/Home"
 
-# go 
-export PATH=$PATH:/usr/local/go/bin
-
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
