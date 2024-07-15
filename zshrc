@@ -61,6 +61,7 @@ alias start='stardog-admin server start'
 alias stop='stardog-admin server stop'
 
 # docker
+alias rm-dang='docker rmi $(docker images -f "dangling=true" -q)'
 alias docker-nuke='docker stop $(docker ps -qa); docker rm $(docker ps -qa); docker rmi -f $(docker images -qa); docker volume prune -f'
 
 # terraform
@@ -191,3 +192,6 @@ then
     theme "catppuccin_latte"
   fi
 fi
+
+# HUGGINGFACE
+export TRANSFORMERS_NO_ADVISORY_WARNINGS=1
