@@ -52,6 +52,5 @@ return {
 			]]
 			},
 		},
-		themeConfigFile = "~/.config/nvim/lua/settings/theme.lua",
 	},
 }
