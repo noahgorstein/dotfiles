@@ -47,6 +47,7 @@ export PATH=$HOME/.local/bin:$PATH
 # ALIASES
 ############
 
+alias ll="ls -lah"
 alias reload="source ~/.zshrc"
 alias vim="nvim"
 alias projects="cd ~/projects"
