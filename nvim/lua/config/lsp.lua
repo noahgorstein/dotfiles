@@ -145,11 +145,11 @@ cmp.setup({
 	},
 })
 
-require("lspconfig").sparql.setup({
-	cmd = { "node", os.getenv("NVM_BIN") .. "/sparql-language-server", "--stdio" },
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+-- require("lspconfig").sparql.setup({
+-- 	cmd = { "node", os.getenv("NVM_BIN") .. "/sparql-language-server", "--stdio" },
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- })
 
 local function fmt(diagnostic)
 	if diagnostic.code then
