@@ -53,6 +53,10 @@ alias vim="nvim"
 alias projects="cd ~/projects"
 alias stredit=": | vipe | cat -"
 
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+
 # tmux
 alias tma='tmux attach -t'
 alias tmn='tmux new -s'
