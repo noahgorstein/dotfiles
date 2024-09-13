@@ -198,5 +198,14 @@ then
   fi
 fi
 
+
+######################
+# KITTY
+######################
+kitty-reload() {
+    kill -SIGUSR1 $(pidof kitty)
+}
+
+
 # HUGGINGFACE
 export TRANSFORMERS_NO_ADVISORY_WARNINGS=1
