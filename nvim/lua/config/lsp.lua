@@ -78,6 +78,7 @@ require("neodev").setup()
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 -- Setup mason so it can manage external tooling
@@ -160,11 +161,11 @@ end
 
 vim.diagnostic.config({
 	virtual_text = {
-		source = "always",
+		source = true,
 		format = fmt,
 	},
 	float = {
-		source = "always",
+		source = true,
 		format = fmt,
 	},
 	signs = true,
