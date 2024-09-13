@@ -1,103 +1,156 @@
-format = """
-$username\
-$hostname\
-$directory\
-$git_branch\
-$git_state\
-$git_status\
-$git_metrics\
-$fill\
-$nodejs\
-$golang\
-$python\
-$kubernetes\
-$cmd_duration $jobs $time\
-$line_break\
-$character"""
+"$schema" = 'https://starship.rs/config-schema.json'
 
-# [kubernetes]
-# format = '[$context ]($style)'
-# contexts = [
-#  { context_pattern = "int*", style = "red"},
-# ]
-# disabled = false
+format = """
+[](color_orange)\
+$os\
+$username\
+[](bg:color_yellow fg:color_orange)\
+$directory\
+[](fg:color_yellow bg:color_aqua)\
+$git_branch\
+$git_status\
+[](fg:color_aqua bg:color_blue)\
+$golang\
+$nodejs\
+$java\
+$python\
+[](fg:color_blue bg:color_bg3)\
+$kubernetes\
+[](fg:color_bg3 bg:color_bg1)\
+$time\
+[ ](fg:color_bg1)\
+$fill\
+$jobs\
+$line_break$character"""
+
+palette = 'gruvbox_dark'
+
+[palettes.gruvbox_dark]
+color_fg0 = '#fbf1c7'
+color_bg1 = '#3c3836'
+color_bg3 = '#665c54'
+color_blue = '#458588'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_yellow = '#d79921'
+
+[os]
+disabled = false
+style = "bg:color_orange fg:color_fg0"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+EndeavourOS = ""
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+
+[username]
+show_always = true
+style_user = "bg:color_orange fg:color_fg0"
+style_root = "bg:color_orange fg:color_fg0"
+format = '[ $user ]($style)'
+
+[directory]
+style = "fg:color_fg0 bg:color_yellow"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "bg:color_aqua"
+format = '[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)'
+
+[git_status]
+style = "bg:color_aqua"
+format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:color_blue"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:color_blue"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+
+[java]
+symbol = " "
+style = "bg:color_blue"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+
+
+[python]
+symbol = ""
+style = "bg:color_blue"
+pyenv_version_name = true
+format = '[ $symbol $version $virtualenv](fg:color_fg0 bg:color_blue)($style)'
 
 [kubernetes]
 disabled = false
+format = '[ $symbol$context ]($style)'
 
 [[kubernetes.contexts]]
 context_pattern = "intprod"
-style = "bold green"
+style= "bg:color_bg3"
 context_alias = " intprod"
-symbol = "🛟"
+symbol = "Δ"
 
 [[kubernetes.contexts]]
 context_pattern = "produswest2"
-style = "bold red"
+style= "bg:color_bg3"
 context_alias = " produswest2"
-symbol = "⚠️"
+symbol = "⚠︎"
 
 [[kubernetes.contexts]]
 context_pattern = "prodeucentral1"
-style = "bold red"
+style= "bg:color_bg3"
 context_alias = " prodeucentral1"
-symbol = "⚠️"
-
-
-
-[nodejs]
-format = "[$symbol($version )]($style)"
-
-[golang]
-format = "[$symbol($version )]($style)"
-
-[python]
-format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+symbol = "⚠︎"
 
 [fill]
 symbol = " "
 
-[directory]
-style = "blue"
-read_only = " "
-truncation_length = 4
-truncate_to_repo = false
-
-[character]
-success_symbol = "[❯](purple)"
-error_symbol = "[❯](red)"
-vicmd_symbol = "[❮](green)"
-
-[git_branch]
-symbol = " "
-format = "[$symbol$branch]($style) "
-style = "bright-black"
-
 [jobs]
-symbol = ""
-style = "bold red"
+symbol = " "
+style = "fg:color_red"
 number_threshold = 1
-format = "[$symbol]($style)"
-
-[git_status]
-format = '([\[$all_status$ahead_behind\]]($style) )'
-style = "cyan"
-
-[git_state]
-format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "bright-black"
-
-[git_metrics]
-disabled = false
-
-[cmd_duration]
-format = "[$duration]($style)"
-style = "yellow"
-
-[memory_usage]
-symbol = " "
+format = '[$symbol]($style)'
 
 [time]
 disabled = false
-style = "bold white"
-format = "[$time]($style)"
+time_format = "%R"
+style = "bg:color_bg1"
+format = '[[  $time ](fg:color_fg0 bg:color_bg1)]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[](bold fg:color_green)'
+error_symbol = '[](bold fg:color_red)'
+vimcmd_symbol = '[](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
+vimcmd_replace_symbol = '[](bold fg:color_purple)'
+vimcmd_visual_symbol = '[](bold fg:color_yellow)'
