@@ -43,6 +43,12 @@ source "$HOME/.cargo/env"
 
 export PATH=$HOME/.local/bin:$PATH 
 
+# trim newlines when pasting
+bracketed-paste() {
+  zle .$WIDGET && LBUFFER=${LBUFFER%$'\n'}
+}
+zle -N bracketed-paste
+
 ############
 # ALIASES
 ############
