@@ -6,6 +6,8 @@ This includes my configuration for:
 - neovim
 - alacritty
 - starship
+- kitty
+- ghostty
 
 ## Requirements
 

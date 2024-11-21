@@ -6,6 +6,7 @@ ZSH := $(HOME)/.zshrc
 TMUX := $(HOME)/.tmux.conf
 ALACRITTY := $(HOME)/.alacritty.toml
 KITTY = $(HOME)/.config/kitty
+GHOSTTY = $(HOME)/.config/ghostty
 NEOVIM := $(HOME)/.config/nvim
 
 default: help
@@ -28,13 +29,16 @@ $(ALACRITTY): alacritty.toml
 $(KITTY): kitty 
 	ln -sf $(DOTFILE_PATH)/kitty $@
 
+$(GHOSTTY): ghostty
+	ln -sf $(DOTFILE_PATH)/ghostty $@
+
 $(NEOVIM): nvim
 	ln -sf $(DOTFILE_PATH)/nvim $@
 
-all: $(STARSHIP) $(ZSH) $(TMUX) $(ALACRITTY) $(KITTY) $(NEOVIM) ## Setup all of the files as symlinks in your home directory.
+all: $(STARSHIP) $(ZSH) $(TMUX) $(ALACRITTY) $(KITTY) $(GHOSTTY) $(NEOVIM) ## Setup all of the files as symlinks in your home directory.
 
 .PHONY: clean
 clean: ## Remove all symlinks originating from dotfiles repo
-	rm -rf $(STARSHIP) $(ZSH) $(TMUX) $(ALACRITTY) $(KITTY) $(NEOVIM) 
+	rm -r -I $(STARSHIP) $(ZSH) $(TMUX) $(ALACRITTY) $(KITTY) $(GHOSTTY) $(NEOVIM)
 
 

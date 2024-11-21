@@ -1,0 +1,10 @@
+theme = Tomorrow Night Eighties
+
+font-size = 16
+font-family = Maple Mono
+
+shell-integration = zsh
+
+window-padding-x = 8
+window-padding-y = 8
+window-padding-balance = true
