@@ -8,3 +8,5 @@ shell-integration = zsh
 window-padding-x = 8
 window-padding-y = 8
 window-padding-balance = true
+
+macos-icon = holographic
