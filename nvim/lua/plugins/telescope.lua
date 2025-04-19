@@ -6,7 +6,5 @@ return {
 		pickers = {
 			git_files = { recurse_submodules = true },
 		},
-
-	}
-
+	},
 }

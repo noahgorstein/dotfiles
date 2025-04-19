@@ -1,5 +1,5 @@
 return {
-	'zaldih/themery.nvim',
+	"zaldih/themery.nvim",
 	priority = 900,
 	dependencies = { "kanagawa.nvim", "tokyonight.nvim", "catppuccin/nvim" },
 	opts = {
@@ -12,35 +12,35 @@ return {
 				]],
 			},
 			{
-				name = 'kanagawa',
+				name = "kanagawa",
 				colorscheme = "kanagawa",
 				before = [[
 				vim.opt.background = "dark"
 				]],
 			},
 			{
-				name = 'catppuccin-latte',
+				name = "catppuccin-latte",
 				colorscheme = "catppuccin-latte",
 				before = [[
 				vim.opt.background = "light"
-			]]
+			]],
 			},
 			{
-				name = 'catppuccin-frappe',
+				name = "catppuccin-frappe",
 				colorscheme = "catppuccin-frappe",
 				before = [[
 				vim.opt.background = "dark"
-			]]
+			]],
 			},
 			{
-				name = 'catppuccin-macchiato',
+				name = "catppuccin-macchiato",
 				colorscheme = "catppuccin-macchiato",
 				before = [[
 				vim.opt.background = "dark"
-			]]
+			]],
 			},
 			{
-				name = 'catppuccin-mocha',
+				name = "catppuccin-mocha",
 				colorscheme = "catppuccin-mocha",
 				before = [[
 				vim.opt.background = "dark"
@@ -49,7 +49,7 @@ return {
 						theme = "catppuccin-mocha",
 					},
 				})
-			]]
+			]],
 			},
 		},
 	},
