@@ -44,6 +44,12 @@ keymap("n", "<leader>a", ":TestSuite<CR>", opts)
 keymap("n", "<leader>L", ":TestLast<CR>", opts)
 keymap("n", "<leader>v", ":TestVisit<CR>", opts)
 
+-- copilot keymaps
+keymap("i", '<M-Tab>', "copilot#Accept()", { expr = true, silent = true })
+keymap("i", "<M-.>", "copilot#Next()", { expr = true, silent = true })
+keymap("i", "<M-,>", "copilot#Previous()", { expr = true, silent = true })
+keymap("i", '<M-/>', "copilot#Dismiss()", { expr = true, silent = true })
+
 -- json
 vim.keymap.set("n", "<leader>jf", "<cmd>%!jq<cr>", { noremap = true, silent = true, desc = "Format with jq" })
 vim.keymap.set("n", "<leader>jm", "<cmd>%!jq -c<cr>", { noremap = true, silent = true, desc = "Minify with jq" })
