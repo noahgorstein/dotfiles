@@ -1,4 +1,4 @@
-theme = Tomorrow Night Eighties
+theme = dark:Tomorrow Night Eighties,light:catppuccin-latte
 
 font-size = 16
 font-family = Maple Mono
