@@ -22,6 +22,7 @@ vim.keymap.set("n", "<leader>/", function()
 	}))
 end, { desc = "[/] Fuzzily search in current buffer" })
 
+vim.keymap.set("i", "<C-c>", "<Esc>", { noremap = true })
 vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
 vim.keymap.set("n", "<leader>fb", require("telescope.builtin").buffers, { desc = "[F]ind existing [B]uffers" })
 vim.keymap.set("n", "<C-p>", require("telescope.builtin").git_files, { desc = "Search git files" })
@@ -45,10 +46,10 @@ keymap("n", "<leader>L", ":TestLast<CR>", opts)
 keymap("n", "<leader>v", ":TestVisit<CR>", opts)
 
 -- copilot keymaps
-keymap("i", '<M-Tab>', "copilot#Accept()", { expr = true, silent = true })
+keymap("i", "<M-Tab>", "copilot#Accept()", { expr = true, silent = true })
 keymap("i", "<M-.>", "copilot#Next()", { expr = true, silent = true })
 keymap("i", "<M-,>", "copilot#Previous()", { expr = true, silent = true })
-keymap("i", '<M-/>', "copilot#Dismiss()", { expr = true, silent = true })
+keymap("i", "<M-/>", "copilot#Dismiss()", { expr = true, silent = true })
 
 -- json
 vim.keymap.set("n", "<leader>jf", "<cmd>%!jq<cr>", { noremap = true, silent = true, desc = "Format with jq" })
