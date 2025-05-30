@@ -14,8 +14,8 @@ return {
 				end
 			end,
 			-- Use a sub-list to run only the first available formatter
-			javascript = { { "prettierd", "prettier" }, "eslint_d" },
-			typescript = { { "prettierd", "prettier" }, "eslint_d" },
+			javascript = { "prettierd", "eslint_d" },
+			typescript = { "prettierd", "eslint_d" },
 			astro = { "prettierd" },
 		},
 		format_on_save = {
