@@ -51,6 +51,9 @@ bracketed-paste() {
 }
 zle -N bracketed-paste
 
+# Edit command line in vi mode
+set -o vi
+
 ############
 # ALIASES
 ############
