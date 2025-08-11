@@ -10,3 +10,4 @@ window-padding-y = 8
 window-padding-balance = true
 
 macos-icon = holographic
+keybind = shift+enter=text:\n
