@@ -22,6 +22,7 @@ vim.keymap.set("n", "<leader>/", function()
 	}))
 end, { desc = "[/] Fuzzily search in current buffer" })
 
+vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "Exit insert mode with <C-c>" })
 vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
 vim.keymap.set("n", "<leader>fb", require("telescope.builtin").buffers, { desc = "[F]ind existing [B]uffers" })
 vim.keymap.set("n", "<C-p>", require("telescope.builtin").git_files, { desc = "Search git files" })
