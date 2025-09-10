@@ -95,6 +95,16 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
+-- Configure LSP servers using vim.lsp.config (mason-lspconfig v2.0.0+ approach)
+for server_name, server_settings in pairs(servers) do
+	vim.lsp.config(server_name, {
+		capabilities = capabilities,
+		on_init = on_init,
+		on_attach = on_attach,
+		settings = server_settings,
+	})
+end
+
 -- Setup mason so it can manage external tooling
 require("mason").setup()
 
@@ -102,17 +112,6 @@ require("mason").setup()
 local mason_lspconfig = require("mason-lspconfig")
 mason_lspconfig.setup({
 	ensure_installed = vim.tbl_keys(servers),
-})
-
-mason_lspconfig.setup_handlers({
-	function(server_name)
-		require("lspconfig")[server_name].setup({
-			capabilities = capabilities,
-			on_init = on_init,
-			on_attach = on_attach,
-			settings = servers[server_name],
-		})
-	end,
 })
 
 -- nvim-cmp setup
