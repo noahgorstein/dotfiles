@@ -141,7 +141,7 @@ bindkey '^E' end-of-line
 ###########
 export STARDOG_HOME="$HOME/stardog-home"
 export STARDOG_EXT="$HOME/stardog-ext"
-
+export STARDOG_SERVER_JAVA_ARGS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005
 ####################
 # STARSHIP PROMPT
 ####################
