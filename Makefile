@@ -8,6 +8,8 @@ ALACRITTY := $(HOME)/.alacritty.toml
 KITTY = $(HOME)/.config/kitty
 GHOSTTY = $(HOME)/.config/ghostty
 NEOVIM := $(HOME)/.config/nvim
+# only the file, not the dir — ~/.config/herdr also holds live sockets and logs
+HERDR := $(HOME)/.config/herdr/config.toml
 
 default: help
 .PHONY: help
@@ -35,10 +37,14 @@ $(GHOSTTY): ghostty
 $(NEOVIM): nvim
 	ln -sf $(DOTFILE_PATH)/nvim $@
 
-all: $(STARSHIP) $(ZSH) $(TMUX) $(ALACRITTY) $(KITTY) $(GHOSTTY) $(NEOVIM) ## Setup all of the files as symlinks in your home directory.
+$(HERDR): herdr/config.toml
+	mkdir -p $(dir $@)
+	ln -sf $(DOTFILE_PATH)/herdr/config.toml $@
+
+all: $(STARSHIP) $(ZSH) $(TMUX) $(ALACRITTY) $(KITTY) $(GHOSTTY) $(NEOVIM) $(HERDR) ## Setup all of the files as symlinks in your home directory.
 
 .PHONY: clean
 clean: ## Remove all symlinks originating from dotfiles repo
-	rm -r -I $(STARSHIP) $(ZSH) $(TMUX) $(ALACRITTY) $(KITTY) $(GHOSTTY) $(NEOVIM)
+	rm -r -I $(STARSHIP) $(ZSH) $(TMUX) $(ALACRITTY) $(KITTY) $(GHOSTTY) $(NEOVIM) $(HERDR)
 
 

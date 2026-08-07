@@ -1,0 +1,17 @@
+[ui]
+agent_panel_sort = "spaces"
+
+[keys]
+# Match tmux muscle memory — see dotfiles/tmux.conf
+prefix = "ctrl+a"
+detach = "prefix+d"
+
+# tmux: % splits side-by-side, " splits stacked
+split_vertical = 'prefix+%'
+split_horizontal = 'prefix+"'
+
+# Navigate-mode movement, vim-style (same as the defaults; pinned explicitly)
+navigate_pane_left = "h"
+navigate_pane_down = "j"
+navigate_pane_up = "k"
+navigate_pane_right = "l"
