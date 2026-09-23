@@ -1,5 +1,11 @@
+onboarding = false
 [ui]
 agent_panel_sort = "spaces"
+# Match the herdr.dev hero: framed panes titled with the agent name
+pane_borders = "always"
+show_agent_labels_on_pane_borders = true
+status_indicators = "symbols"            # distinct shape per agent state, not just a dot
+tab_bar_right = [{ type = "datetime", format = "%a %d/%m/%Y %H:%M" }]
 
 [keys]
 # Match tmux muscle memory — see dotfiles/tmux.conf
@@ -15,3 +21,14 @@ navigate_pane_left = "h"
 navigate_pane_down = "j"
 navigate_pane_up = "k"
 navigate_pane_right = "l"
+
+[theme]
+# Inherit the host terminal palette (kitty Catppuccin Macchiato); one source of truth
+name = "terminal"
+
+auto_switch = false
+[ui.sidebar.agents]
+rows = [
+  ["state_icon", "workspace"],
+  ["state_text", "agent"],
+]
